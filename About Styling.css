@@ -1,0 +1,18 @@
+p {
+  text-align: center;
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px; /* Add some space above the images */
+}
+
+.image-container img {
+    max-width: 30%;
+    height: auto;
+    border-radius: 8px; /* Optional: Round the image corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Add a subtle shadow */
+}
