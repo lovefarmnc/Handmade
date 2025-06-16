@@ -1,33 +1,40 @@
 body {
     background-image: url("Temp_Background.jpg");
-    background-size: auto 100%;
-    background-position: top;
+    background-size: 100%;
+    background-position: center;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     color: beige;
     font-family: Arial, sans-serif;
-    min-height: 100vh; /* Ensure body covers the full viewport height */
+    min-height: 95vh;
+    max-width: 100%; /* Ensure body covers the full viewport height */
     position: relative; /* Needed for absolute positioning of the footer */
 }
 
 .container {
-    min-height: calc(100vh - 50px); /* Adjust for footer height */
+    min-height: calc(80vh - 20px); /* Adjust for footer height */
     position: relative;
 }
 
-.button {
-    position: absolute;
-    bottom: 70px; /* Adjust this value to move the button higher */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 15px 30px;
-    font-size: 1.2em;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+.button-container {
+  position: absolute;
+  bottom: 70px; /* Adjust this value to move the container higher */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center; /* Center the button horizontally within the container */
 }
 
+.button {
+  display: inline-block; /* Allows you to control width/height if needed */
+  padding: 15px 30px;
+  font-size: 1.2em;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
 .title-container {
     position: absolute;
     top: 10px;
@@ -35,13 +42,30 @@ body {
     z-index: 2;
 }
 
+.logo-container {
+    position: relative; /* Make this the positioning context */
+    width: 300px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+}
+
 .logo {
     position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 300px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px; /* Adjust to your desired size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.tagline {
+    position: absolute;
+    top: 60%; /* Adjust as needed */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the tagline */
+    font-size: 1.2em;
+    color: #000;
+    text-align: center;
+    width: 100%;
 }
 
 h1 {
@@ -53,28 +77,16 @@ h1 {
     text-align: left;
 }
 
-p {
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    width: auto;
-    text-align: left;
-}
-
 footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    color: white;
+    background-color: white; /* Solid white background */
+    color: black; /* Ensures text is readable against white background */
     text-align: center;
-    padding: 15px 0;
-}
-footer {
-    background-color: #f0f0f0; /* Just to see the footer area */
-    padding: 10px;
-    text-align: center; /* Center the content */
+    padding: 10px 0;
+    width: 98%; /* Spans the entire width */
+    position: fixed; /* Sticks to the bottom */
+    bottom: 0; /* Aligns to the bottom */
+    left: 0; /* Aligns to the left */
+    margin: 0; /* Remove default margins */
 }
 
 footer ul {
@@ -96,10 +108,4 @@ footer a {
 
 footer a:hover {
     color: #007bff; /* Change color on hover */
-}
-
-footer .copyright {
-    margin-top: 10px; /* Add space between links and copyright */
-    font-size: 0.8em; /* Make the copyright text smaller */
-    color: black; /* Gray out the copyright text */
 }
