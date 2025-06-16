@@ -1,74 +1,208 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+nav {
+    position: relative; /* Needed for positioning the dropdown */
+}
+.dropdown {
+    display: inline-block;
+}
+
+.menu-button {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content li a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Basic button styling */
+button {
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: transparent; /* Removes background color */
+    color: inherit; /* Inherits text color from parent */
+}
+
+/* Remove specific styles for each button */
+.menu-button {
+    background-color: transparent;
+}
+
+.user-button {
+    background-color: transparent;
+    color: inherit;
+}
+
+.cart-button {
+    background-color: transparent;
+}
+.cart a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.cart a:hover {
+    background-color: #e9e9e9;
+}
+
+/* Hover effect */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Push the user button to the far right */
+.cart {
+    margin-left: auto; /* Push cart to the right */
+    margin-right: 10px; /* Add some spacing */
+}
+
 body {
-    background-image: url("Temp_Background.jpg");
-    background-size: 100%;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+/* Section One */
+.section-one {
+    background-image: url("Background Img1.jpg");
+    background-size: cover; /* Changed from 100% to cover */
     background-position: center;
     background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    color: beige;
-    font-family: Arial, sans-serif;
-    min-height: 95vh;
-    max-width: 100%; /* Ensure body covers the full viewport height */
-    position: relative; /* Needed for absolute positioning of the footer */
+    height: 60vh; /* Increased height */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Vertically center items */
+    align-items: center; /* Horizontally center items */
+    position: relative; /* Needed for tagline positioning */
 }
 
-.container {
-    min-height: calc(80vh - 20px); /* Adjust for footer height */
-    position: relative;
-}
-
-.button-container {
-  position: absolute;
-  bottom: 70px; /* Adjust this value to move the container higher */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center; /* Center the button horizontally within the container */
-}
-
-.button {
-  display: inline-block; /* Allows you to control width/height if needed */
-  padding: 15px 30px;
-  font-size: 1.2em;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-.title-container {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 2;
-}
-
-.logo-container {
-    position: relative; /* Make this the positioning context */
-    width: 300px; /* Adjust as needed */
-    height: 200px; /* Adjust as needed */
+.logo-container { /* New container for the logo */
+    width: 100%; /* Take up the full width */
+    text-align: right; /* Right align the content inside */
 }
 
 .logo {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px; /* Adjust to your desired size */
-    height: auto; /* Maintain aspect ratio */
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    display: inline-block; /* Use inline-block to allow text-align to work */
 }
 
 .tagline {
-    position: absolute;
-    top: 60%; /* Adjust as needed */
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the tagline */
+    text-align: margin-right;
     font-size: 1.2em;
     color: #000;
+    margin-top: 20px;
+}
+.section-two {
+    background-color: #F5F5DC; /* Beige */
+    min-height: 50vh; /* Adjust as needed */
+}
+
+.section-three {
+    background-color: #FFFDD0; /* Cream */
+    min-height: 50vh; /* Adjust as needed */
+}
+
+.section-four {
+        background-color: #E9DAC1;
+        min-height: 50vh;
+        padding-bottom: 50px; /* Adjust as needed */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Keeps items responsive */
+    gap: 20px; /* Space between items */
+}
+
+.product-item {
     text-align: center;
+    box-sizing: border-box;
+    border: 10px solid #A68B64;
+}
+
+.product-item img {
     width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.product-item a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+
+.product-item span {
+    display: block;
+    font-size: 14px;
+}
+
+p {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  text-align: center;
+  color: black; /* Force the text to be black */
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px; /* Add some space above the images */
+}
+
+.image-container img {
+    max-width: 30%;
+    height: auto;
+    border-radius: 8px; /* Optional: Round the image corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Add a subtle shadow */
 }
 
 h1 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     position: absolute;
     top: 50%;
     left: 10%;
@@ -77,12 +211,19 @@ h1 {
     text-align: left;
 }
 
+h2 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    color: black; /* Force the text to be black */
+}
+
 footer {
-    background-color: white; /* Solid white background */
+    background-color: white;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Solid white background */
     color: black; /* Ensures text is readable against white background */
     text-align: center;
     padding: 10px 0;
-    width: 98%; /* Spans the entire width */
+    width: 100%; /* Spans the entire width */
     position: fixed; /* Sticks to the bottom */
     bottom: 0; /* Aligns to the bottom */
     left: 0; /* Aligns to the left */
