@@ -235,7 +235,10 @@ h2 {
     text-align: center;
     color: black; /* Force the text to be black */
 }
-
+h4 { font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    color: black; /* Force the text to be black */
+   }
 footer {
     background-color: white;
     font-family: 'Comic Sans MS', cursive, sans-serif; /* Solid white background */
@@ -306,4 +309,5 @@ banner {
     align-items: center; /* Horizontally center items */
     position: relative; /* Needed for tagline positioning */
 }
+
 
