@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caramel Latte Love</title>
-    <style>
+  <title>Carmel Latte Love</title>
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #D2B48C;
-        padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #fff8f0;
+      color: #5a2a27;
+      padding: 40px;
+      text-align: center;
     }
-
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
     img {
-        border-radius: 8px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(90, 42, 39, 0.3);
+      max-width: 300px;
+      margin-bottom: 20px;
     }
-
-    h2 {
-        color: #8B4513; /* Saddle Brown */
+    select, button {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border: 2px solid #5a2a27;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #f7e7e5;
+      color: #5a2a27;
+      transition: background-color 0.3s ease;
     }
-
-    label {
-        display: block;
-        margin: 10px 0;
+    select:hover, button:hover {
+      background-color: #d9b8b5;
     }
-
-    button {
-        background-color: #d5006d; /* Rose color */
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
+    #cartCount {
+      font-weight: bold;
+      color: #d94f4f;
     }
-
-    button:hover {
-        background-color: #8B4513; /* Saddle Brown on Hover */
-    }
-</style>
+  </style>
 </head>
 <body>
     
@@ -83,4 +83,5 @@ document.getElementById('addToCartBtn').addEventListener('click', function() {
     });
 </script>
 </body>
+
 </html>
