@@ -310,3 +310,42 @@ banner {
     align-items: center; /* Horizontally center items */
     position: relative; /* Needed for tagline positioning */
 }
+.cart-style {
+  background-color: #f9f9f9; /* match your site’s background */
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 300px;
+  font-family: 'YourSiteFont', sans-serif;
+  color: #333;
+}
+
+#cartItemsList {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+#cartItemsList li {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+#cartSubtotal {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.checkout-button {
+  background-color: #007bff; /* or your site’s primary button color */
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.checkout-button:hover {
+  background-color: #0056b3;
+}
