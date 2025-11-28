@@ -51,30 +51,59 @@ window.removeFromCart = function(index) {
     }
 };
 
-// Render cart items (for cart.html)
+// Render cart items and subtotal (for cart.html)
 function renderCartItems() {
     const cart = getCart();
     const cartItemsDiv = document.getElementById('cart-items');
-    if (!cartItemsDiv) return;
+    const cartSubtotalDiv = document.getElementById('cart-subtotal');
+    if (!cartItemsDiv || !cartSubtotalDiv) return;
+
     cartItemsDiv.innerHTML = '';
+
     if (cart.length === 0) {
-        cartItemsDiv.textContent = 'Cart is empty.';
+        cartItemsDiv.textContent = 'Your cart is empty.';
+        cartSubtotalDiv.textContent = '';
+        return;
+    }
+
+    let subtotal = 0;
+
+    cart.forEach((item, index) => {
+        // Create item display with product, size, quantity, price
+        const itemDiv = document.createElement('div');
+        const price = item.price || 0; // fallback if price not set
+        const totalPrice = price * item.quantity;
+        subtotal += totalPrice;
+
+        itemDiv.innerHTML = `
+            <p>${item.product} (${item.size}) x ${item.quantity} - $${totalPrice.toFixed(2)}</p>
+            <button onclick="removeFromCart(${index})">Remove</button>
+        `;
+
+        cartItemsDiv.appendChild(itemDiv);
+    });
+
+    cartSubtotalDiv.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
+}
+
+// Modify addItemToCart to include price
+function addItemToCart({ product, size, quantity, price }) {
+    let cart = getCart();
+    let found = cart.find(item => item.product === product && item.size === size);
+    if (found) {
+        found.quantity += quantity;
     } else {
-        cart.forEach((item, idx) => {
-            let div = document.createElement('div');
-            div.className = 'cart-item';
-            div.innerHTML = `
-                ${item.quantity} x ${item.product} (${item.size})
-                <button onclick="removeFromCart(${idx})">Remove</button>
-            `;
-            cartItemsDiv.appendChild(div);
-        });
+        cart.push({ product, size, quantity, price });
     }
-    // Show summary
-    const summary = document.getElementById('cart-summary');
-    if (summary) {
-        summary.textContent = `Total items: ${cart.reduce((sum, item) => sum + item.quantity, 0)}`;
-    }
+    saveCart(cart);
+    updateCartCount();
+}
+
+// Call renderCartItems on cart page load
+document.addEventListener('DOMContentLoaded', () => {
+    renderCartItems();
+    updateCartCount();
+});
 }
 document.getElementById('addToCartBtn').addEventListener('click', () => {
     const product = document.getElementById('addToCartBtn').dataset.product;
