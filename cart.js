@@ -78,47 +78,31 @@ function renderCartItems() {
 }
 document.getElementById('addToCartBtn').addEventListener('click', () => {
     const product = "Rose Petal Purity"; // hardcoded per page
-    const size = document.getElementById('sizeSelect').value;
-    const quantity = parseInt(document.getElementById('quantityInput').value, 10);
+    const size = document.querySelector('input[name="size"]:checked').value;
+    const quantity = 1; // or get from input if you have one
 
-    if (quantity > 0) {
-        addItemToCart({ product, size, quantity });
-    } else {
-        alert('Please enter a valid quantity');
-    }
+    addItemToCart({ product, size, quantity });
 });
 document.getElementById('addToCartBtn').addEventListener('click', () => {
-    const product = "Caramel Latte Love"; // hardcoded per page
-    const size = document.getElementById('sizeSelect').value;
-    const quantity = parseInt(document.getElementById('quantityInput').value, 10);
+    const product = "Soothing Oats"; // hardcoded per page
+    const size = document.querySelector('input[name="size"]:checked').value;
+    const quantity = 1; // or get from input if you have one
 
-    if (quantity > 0) {
-        addItemToCart({ product, size, quantity });
-    } else {
-        alert('Please enter a valid quantity');
-    }
+    addItemToCart({ product, size, quantity });
+});
+
+document.getElementById('addToCartBtn').addEventListener('click', () => {
+    const product = "Caramel Latte Love"; // hardcoded per page
+    const size = document.querySelector('input[name="size"]:checked').value;
+    const quantity = 1; // or get from input if you have one
+
+    addItemToCart({ product, size, quantity });
 });
 
 document.getElementById('addToCartBtn').addEventListener('click', () => {
     const product = "Peppermint Wake Up Love"; // hardcoded per page
-    const size = document.getElementById('sizeSelect').value;
-    const quantity = parseInt(document.getElementById('quantityInput').value, 10);
+    const size = document.querySelector('input[name="size"]:checked').value;
+    const quantity = 1; // or get from input if you have one
 
-    if (quantity > 0) {
-        addItemToCart({ product, size, quantity });
-    } else {
-        alert('Please enter a valid quantity');
-    }
-});
-
-document.getElementById('addToCartBtn').addEventListener('click', () => {
-    const product = "Soothing Oats"; // hardcoded per page
-    const size = document.getElementById('sizeSelect').value;
-    const quantity = parseInt(document.getElementById('quantityInput').value, 10);
-
-    if (quantity > 0) {
-        addItemToCart({ product, size, quantity });
-    } else {
-        alert('Please enter a valid quantity');
-    }
+    addItemToCart({ product, size, quantity });
 });
