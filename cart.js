@@ -77,32 +77,9 @@ function renderCartItems() {
     }
 }
 document.getElementById('addToCartBtn').addEventListener('click', () => {
-    const product = "Rose Petal Purity"; // hardcoded per page
+    const product = document.getElementById('addToCartBtn').dataset.product;
     const size = document.querySelector('input[name="size"]:checked').value;
-    const quantity = 1; // or get from input if you have one
-
-    addItemToCart({ product, size, quantity });
-});
-document.getElementById('addToCartBtn').addEventListener('click', () => {
-    const product = "Soothing Oats"; // hardcoded per page
-    const size = document.querySelector('input[name="size"]:checked').value;
-    const quantity = 1; // or get from input if you have one
-
-    addItemToCart({ product, size, quantity });
-});
-
-document.getElementById('addToCartBtn').addEventListener('click', () => {
-    const product = "Caramel Latte Love"; // hardcoded per page
-    const size = document.querySelector('input[name="size"]:checked').value;
-    const quantity = 1; // or get from input if you have one
-
-    addItemToCart({ product, size, quantity });
-});
-
-document.getElementById('addToCartBtn').addEventListener('click', () => {
-    const product = "Peppermint Wake Up Love"; // hardcoded per page
-    const size = document.querySelector('input[name="size"]:checked').value;
-    const quantity = 1; // or get from input if you have one
+    const quantity = 1;
 
     addItemToCart({ product, size, quantity });
 });
