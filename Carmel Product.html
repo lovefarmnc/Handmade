@@ -15,14 +15,10 @@
             </div>
         </div>
         <div class="tagline">Add a little love to your life!</div>
-        <nav class="button-container">
-            <a href="About.html" class="button">Our Story</a>
-            <a href="Products.html" class="button">Amazing Soaps!</a>
-        </nav>
     </header>
 
     <main>
-       <img src="Soothing Oats.jpeg" alt="Caramel Latte Love" width="300">
+       <img src="Oatmeal Placeholder.jpg" alt="Caramel Latte Love" width="300">
 
            
            <h2>Choose Your Size:</h2>
@@ -42,7 +38,7 @@
        document.getElementById('addToCartBtn').addEventListener('click', function() {
              const size = document.querySelector('input[name="size"]:checked').value;
              const product = {
-               name: 'Rose Petal Purity',
+               name: 'Caramel Latte Love',
                size: size,
                price: size === 'full' ? 7.99 : 3.99,
                quantity: 1
