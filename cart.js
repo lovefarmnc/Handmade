@@ -64,6 +64,52 @@ function renderCartItems() {
         summary.textContent = `Total items: ${cart.reduce((sum, item) => sum + item.quantity, 0)}`;
     }
 }
+document.getElementById('addToCartBtn').addEventListener('click', () => {
+    const product = "Rose Petal Purity"; // hardcoded per page
+    const size = document.getElementById('sizeSelect').value;
+    const quantity = parseInt(document.getElementById('quantityInput').value, 10);
 
+    if (quantity > 0) {
+        addItemToCart({ product, size, quantity });
+    } else {
+        alert('Please enter a valid quantity');
+    }
+});
+document.getElementById('addToCartBtn').addEventListener('click', () => {
+    const product = "Caramel Latte Love"; // hardcoded per page
+    const size = document.getElementById('sizeSelect').value;
+    const quantity = parseInt(document.getElementById('quantityInput').value, 10);
+
+    if (quantity > 0) {
+        addItemToCart({ product, size, quantity });
+    } else {
+        alert('Please enter a valid quantity');
+    }
+});
+
+document.getElementById('addToCartBtn').addEventListener('click', () => {
+    const product = "Peppermint Wake Up Love"; // hardcoded per page
+    const size = document.getElementById('sizeSelect').value;
+    const quantity = parseInt(document.getElementById('quantityInput').value, 10);
+
+    if (quantity > 0) {
+        addItemToCart({ product, size, quantity });
+    } else {
+        alert('Please enter a valid quantity');
+    }
+});
+
+document.getElementById('addToCartBtn').addEventListener('click', () => {
+    const product = "Soothing Oats"; // hardcoded per page
+    const size = document.getElementById('sizeSelect').value;
+    const quantity = parseInt(document.getElementById('quantityInput').value, 10);
+
+    if (quantity > 0) {
+        addItemToCart({ product, size, quantity });
+    } else {
+        alert('Please enter a valid quantity');
+    }
+});
 // On all pages: call updateCartCount() on load!
 document.addEventListener('DOMContentLoaded', updateCartCount);
+
