@@ -1,56 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Simple Cart</title>
-  <style>
-    .cart { border: 1px solid #ccc; padding: 10px; margin-top: 20px; }
-    .cart-item { margin-bottom: 10px; }
-    .cart-summary { margin-top: 10px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <span>Cart (<span id="cart-count">0</span>)</span>
-  </header>
-  <h2>Add a Product</h2>
-  <form id="product-form">
-    <input type="text" id="product-name" value="Sample Product" placeholder="Product Name" required>
-    <label>
-      <input type="radio" name="size" value="Small" checked> Small
-    </label>
-    <label>
-      <input type="radio" name="size" value="Medium"> Medium
-    </label>
-    <label>
-      <input type="radio" name="size" value="Large"> Large
-    </label>
-    <input type="number" id="quantity" value="1" min="1">
-    <button type="submit">Add to Cart</button>
-  </form>
-
-  <div class="cart" id="cart">
-    <h3>Your Cart</h3>
-    <div id="cart-items"></div>
-    <div class="cart-summary" id="cart-summary"></div>
+    <header>
+    <nav>
+    <div class="dropdown">
+        <a href="#" class="menu-button"><img src="menuimg.png" alt="Menu"></a>
+        <ul class="dropdown-content">
+            <li><a href="lovefarmnc.com">Home</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li><a href="TempServices.html">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="mailto:erica@lovefarmnc.com">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+    <div class="cart">
+            <a href="cart.html">
+                Cart (<span id="cart-count">0</span>)
+            </a>
+        </div>
+</header>
+<div id="cartContainer" class="cart-style">
+  <h2>Your Order Summary</h2>
+  <ul id="cartItemsList">
+    <!-- Each cart item will be listed here dynamically -->
+  </ul>
+  <div id="cartSubtotal">
+    Subtotal: $0.00
   </div>
-
-  <script src="cart.js"></script>
-  <script>
-    // Add product to cart
-    document.getElementById('product-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const product = document.getElementById('product-name').value.trim();
-      const size = document.querySelector('input[name="size"]:checked').value;
-      const quantity = parseInt(document.getElementById('quantity').value, 10);
-
-      if (!product) return; // Require a product name
-
-      addItemToCart({ product, size, quantity });
-      renderCartItems();
-    });
-
-    // Render cart on load
-    renderCartItems();
-  </script>
+  <button id="checkoutBtn" class="checkout-button">Check Out</button>
+</div>
+<footer>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">X</a></li>
+            <li><a href="mailto:erica@lovefarmnc.com">Contact</a></li>
+            <li><a href="Privacy Statement.html">Privacy Statement</a></li>
+        </ul>
+    </footer>
+<script src="cart.js"></script>
 </body>
 </html>
