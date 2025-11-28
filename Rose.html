@@ -1,58 +1,30 @@
 <html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Rose Petal Purity</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fff8f0;
-      color: #5a2a27;
-      padding: 40px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    img {
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(90, 42, 39, 0.3);
-      max-width: 300px;
-      margin-bottom: 20px;
-    }
-    select, button {
-      font-size: 1.2em;
-      padding: 10px 20px;
-      margin: 10px 5px;
-      border: 2px solid #5a2a27;
-      border-radius: 8px;
-      cursor: pointer;
-      background-color: #f7e7e5;
-      color: #5a2a27;
-      transition: background-color 0.3s ease;
-    }
-    select:hover, button:hover {
-      background-color: #d9b8b5;
-    }
-    #cartCount {
-      font-weight: bold;
-      color: #d94f4f;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rose Petal Purity</title>
 </head>
 <body>
-
+<header>
   <div style="position: fixed; top: 20px; right: 20px; cursor: pointer;">
     🛒 Cart: <span id="cartCount">0</span>
   </div>
+</header>
 
-  <h1>Rose Petal Purity</h1>
-  <img src="your-image-url.jpg" alt="Rose Petal Purity" style="max-width: 300px; display: block; margin-bottom: 20px;" />
+  <main>
+    <img src="Product Rose.jpg" alt="Rose Petal Purity" style="max-width: 300px; display: block; margin-bottom: 20px;" />
+  
+  <h2>Select Your Size:</h2>
 
   <select id="sizeSelect">
-    <option value="small">Small</option>
-    <option value="medium">Medium</option>
-    <option value="large">Large</option>
+    <option value="sample">Sample</option>
+    <option value="regular">Regular</option>
   </select>
+
+<p>Average weight: 3.5 oz (Exact weight may vary by ±0.2 oz due to handmade nature)</p>
 
   <button id="addToCartBtn">Add to Cart</button>
 
@@ -83,6 +55,14 @@
     // Update cart count on page load
     updateCartCount();
   </script>
-
+</main>
+<footer>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">X</a></li>
+            <li><a href="mailto:erica@lovefarmnc.com">Contact</a></li>
+            <li><a href="Privacy Statement.html">Privacy Statement</a></li>
+        </ul>
+    </footer>
 </body>
 </html>
