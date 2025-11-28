@@ -59,9 +59,27 @@
     <p>We've combined an old-fashioned homesteader recipe with our love for all things caramel and coffee. Enjoy the moisturizing benefits of this basic, locally-sourced, lard soap and a twist of gently exfoliating organic coffee. With only four ingredients and a fragrance that is free from harmful chemicals, this bar is invigorating and gentle.</p>
 Add to Cart
 <script>
-    document.querySelector('button').addEventListener('click', function() {
-        alert('Added to cart!');
-        // Here you can add more functionality like updating a cart count
+document.getElementById('addToCartBtn').addEventListener('click', function() {
+      const size = document.querySelector('input[name="size"]:checked').value;
+      const product = {
+        name: 'Rose Petal Purity',
+        size: size,
+        price: size === 'full' ? 7.99 : 3.99,
+        quantity: 1
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const existingProductIndex = cart.findIndex(item => item.name === product.name && item.size === product.size);
+      if (existingProductIndex > -1) {
+        cart[existingProductIndex].quantity += 1;
+      } else {
+        cart.push(product);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert('Added to cart!');
     });
 </script>
 </body>
