@@ -1,50 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soothing Oats</title>
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #D2B48C;
-        padding: 20px;
-    }
-
-    img {
-        border-radius: 8px;
-    }
-
-    h2 {
-        color: #d5006d; /* Rose color */
-    }
-
-    label {
-        display: block;
-        margin: 10px 0;
-    }
-
-    button {
-        background-color: #d5006d; /* Rose color */
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    button:hover {
-        background-color: #b0004d; /* Darker rose on hover */
-    }
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Caramel Latte Love</title>
 </head>
 <body>
-    
+    <header>
+        <div class="container">
+            <img src="LOVE FARM LOGO.jpg" alt="Logo" class="logo" />
+            <div class="cart">
+                <a href="cart.html">Cart (0)</a>
+            </div>
+        </div>
+        <div class="tagline">Add a little love to your life!</div>
+    </header>
+    <main>
     <img src="Soothing Oats.jpeg" alt="Soothing Oats" width="300">
-
-    
     <h2>Choose Your Size:</h2>
     <label>
         <input type="radio" name="size" value="full" checked>
@@ -57,7 +30,7 @@
     <p>Average weight: 3.5 oz (Exact weight may vary by ±0.2 oz due to handmade nature)</p>
 
     <p>Soothe and nourish your skin with our Soothing Oats bar, the gentle giant of hydration. Perfect for those battling dryness, this bar is packed with the goodness of natural oatmeal to provide a little extra moisture without any harsh chemicals. Lather up and let the natural power of oatmeal work its magic – your skin will thank you for it.</p>
-
+    <button>Add to Cart</button>
 <script>
     document.getElementById('addToCartBtn').addEventListener('click', function() {
       const size = document.querySelector('input[name="size"]:checked').value;
@@ -81,6 +54,16 @@
 
       alert('Added to cart!');
     }); 
-</script>
+        </script>
+    </main>
+
+<footer>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">X</a></li>
+            <li><a href="mailto:erica@lovefarmnc.com">Contact</a></li>
+            <li><a href="Privacy Statement.html">Privacy Statement</a></li>
+        </ul>
+    </footer>
 </body>
 </html>
