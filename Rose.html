@@ -1,68 +1,89 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rose Petal Purity</title>
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rose Petal Purity</title>
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #D2B48C;
-        padding: 20px;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #fff0f5;
+      color: #333;
     }
-
-    img {
-        border-radius: 8px;
+    h1 {
+      color: #c71585;
     }
-
-    h2 {
-        color: #d5006d; /* Rose color */
+    .product-info {
+      margin-bottom: 20px;
     }
-
-    label {
-        display: block;
-        margin: 10px 0;
+    .sizes label {
+      margin-right: 15px;
+      cursor: pointer;
     }
-
     button {
-        background-color: #d5006d; /* Rose color */
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
+      background-color: #c71585;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
     }
-
     button:hover {
-        background-color: #b0004d; /* Darker rose on hover */
+      background-color: #a0146f;
     }
-</style>
+  </style>
 </head>
 <body>
-    
-    <img src="Rose Petal Purity.jpeg" alt="Rose Petal Purity" width="300">
 
-    
-    <h2>Choose Your Size:</h2>
-    <label>
-        <input type="radio" name="size" value="full" checked>
-        Full Size Bar - $7.99
-    </label><br>
-    <label>
-        <input type="radio" name="size" value="sample">
-        Sample Size - $3.99
-    </label>
-    <p>Average weight: 3.5 oz (Exact weight may vary by ±0.2 oz due to handmade nature)</p>
+  <h1>Rose Petal Purity</h1>
 
-    <p>Show yourself some love with this naturally infused bar that gently moisturizes as it cleanses, turning your daily shower into a spa-like experience. Rose Petal Purity leaves you with a silky-smooth feeling that'll have your skin begging for more.</p>
-Add to Cart
-<script>
-    document.querySelector('button').addEventListener('click', function() {
-        alert('Added to cart!');
-        // Here you can add more functionality like updating a cart count
+  <div class="product-info">
+    <p>Experience the delicate fragrance and purity of rose petals with our exclusive product.</p>
+  </div>
+
+  <form id="productForm">
+    <div class="sizes">
+      <label>
+        <input type="radio" name="size" value="full" checked />
+        Full Size - $7.99
+      </label>
+      <label>
+        <input type="radio" name="size" value="half" />
+        Half Size - $3.99
+      </label>
+    </div>
+
+    <button type="button" id="addToCartBtn">Add to Cart</button>
+  </form>
+
+  <script>
+    document.getElementById('addToCartBtn').addEventListener('click', function() {
+      const size = document.querySelector('input[name="size"]:checked').value;
+      const product = {
+        name: 'Rose Petal Purity',
+        size: size,
+        price: size === 'full' ? 7.99 : 3.99,
+        quantity: 1
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const existingProductIndex = cart.findIndex(item => item.name === product.name && item.size === product.size);
+      if (existingProductIndex > -1) {
+        cart[existingProductIndex].quantity += 1;
+      } else {
+        cart.push(product);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert('Added to cart!');
     });
-</script>
+  </script>
+
 </body>
 </html>
+```
