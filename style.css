@@ -291,7 +291,19 @@ banner {
   text-align: center;
 }
 
-.centered{
+.centered {
     text-align: center;
+}
+.rose-section {
+    background-image: url("Better Banner.jpg");
+    background-size: cover; /* Changed from 100% to cover */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh; /* Increased height */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Vertically center items */
+    align-items: center; /* Horizontally center items */
+    position: relative; /* Needed for tagline positioning */
 }
 
