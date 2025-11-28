@@ -1,3 +1,6 @@
+// On all pages: call updateCartCount() on load!
+document.addEventListener('DOMContentLoaded', updateCartCount);
+
 // Utility to get cart from localStorage
 function getCart() {
     return JSON.parse(localStorage.getItem('cart')) || [];
@@ -30,14 +33,23 @@ function addItemToCart({ product, size, quantity }) {
     updateCartCount();
 }
 
-// Remove item by index (for cart.html)
-function removeFromCart(index) {
+window.removeFromCart = function(index) {
     let cart = getCart();
     cart.splice(index, 1);
     saveCart(cart);
     renderCartItems();
     updateCartCount();
-}
+};
+
+window.removeFromCart = function(index) {
+    if (confirm("Are you sure you want to remove this item from your cart?")) {
+        let cart = getCart();
+        cart.splice(index, 1);
+        saveCart(cart);
+        renderCartItems();
+        updateCartCount();
+    }
+};
 
 // Render cart items (for cart.html)
 function renderCartItems() {
@@ -110,6 +122,3 @@ document.getElementById('addToCartBtn').addEventListener('click', () => {
         alert('Please enter a valid quantity');
     }
 });
-// On all pages: call updateCartCount() on load!
-document.addEventListener('DOMContentLoaded', updateCartCount);
-
