@@ -15,10 +15,15 @@
             </div>
         </div>
         <div class="tagline">Add a little love to your life!</div>
+          <div style="position: fixed; top: 20px; right: 20px; cursor: pointer;">
+    🛒 Cart: <span id="cart-count">0</span>
+  </div>
     </header>
     <main>
     <img src="Soothing Oats.jpeg" alt="Soothing Oats" width="300">
-    <h2>Choose Your Size:</h2>
+     <p>Soothe and nourish your skin with our Soothing Oats bar, the gentle giant of hydration. Perfect for those battling dryness, this bar is packed with the goodness of natural oatmeal to provide a little extra moisture without any harsh chemicals. Lather up and let the natural power of oatmeal work its magic – your skin will thank you for it.</p>
+    <h2>Available Sizes:</h2>
+    <p>Average weight per full size bar: 3.5 oz (Exact weight may vary by ±0.2 oz due to handmade nature)</p>
     <label>
         <input type="radio" name="size" value="full" checked>
         Full Size Bar - $7.99
@@ -27,34 +32,9 @@
         <input type="radio" name="size" value="sample">
         Sample Size - $3.99
     </label>
-    <p>Average weight: 3.5 oz (Exact weight may vary by ±0.2 oz due to handmade nature)</p>
-
-    <p>Soothe and nourish your skin with our Soothing Oats bar, the gentle giant of hydration. Perfect for those battling dryness, this bar is packed with the goodness of natural oatmeal to provide a little extra moisture without any harsh chemicals. Lather up and let the natural power of oatmeal work its magic – your skin will thank you for it.</p>
-    <button>Add to Cart</button>
-<script>
-    document.getElementById('addToCartBtn').addEventListener('click', function() {
-      const size = document.querySelector('input[name="size"]:checked').value;
-      const product = {
-        name: 'Soothing Oats',
-        size: size,
-        price: size === 'full' ? 7.99 : 3.99,
-        quantity: 1
-      };
-
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      const existingProductIndex = cart.findIndex(item => item.name === product.name && item.size === product.size);
-      if (existingProductIndex > -1) {
-        cart[existingProductIndex].quantity += 1;
-      } else {
-        cart.push(product);
-      }
-
-      localStorage.setItem('cart', JSON.stringify(cart));
-
-      alert('Added to cart!');
-    }); 
-        </script>
+   
+    <button id="addToCartBtn">Add to Cart</button>
+<script src="cart.js"></script>
     </main>
 
 <footer>
@@ -67,4 +47,3 @@
     </footer>
 </body>
 </html>
-
