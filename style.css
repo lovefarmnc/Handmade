@@ -50,7 +50,7 @@ nav {
     top: 20px;
     right: 30px;
     background-color: #fff;
-    border: 2px solid #4CAF50;
+    border: 2px solid;
     border-radius: 8px;
     padding: 10px 18px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
