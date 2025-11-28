@@ -1,89 +1,88 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rose Petal Purity</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #fff0f5;
-      color: #333;
+      background-color: #fff8f0;
+      color: #5a2a27;
+      padding: 40px;
+      text-align: center;
     }
     h1 {
-      color: #c71585;
+      font-size: 2.5em;
+      margin-bottom: 10px;
     }
-    .product-info {
+    img {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(90, 42, 39, 0.3);
+      max-width: 300px;
       margin-bottom: 20px;
     }
-    .sizes label {
-      margin-right: 15px;
-      cursor: pointer;
-    }
-    button {
-      background-color: #c71585;
-      color: white;
-      border: none;
+    select, button {
+      font-size: 1.2em;
       padding: 10px 20px;
-      font-size: 16px;
+      margin: 10px 5px;
+      border: 2px solid #5a2a27;
+      border-radius: 8px;
       cursor: pointer;
-      border-radius: 5px;
+      background-color: #f7e7e5;
+      color: #5a2a27;
+      transition: background-color 0.3s ease;
     }
-    button:hover {
-      background-color: #a0146f;
+    select:hover, button:hover {
+      background-color: #d9b8b5;
+    }
+    #cartCount {
+      font-weight: bold;
+      color: #d94f4f;
     }
   </style>
 </head>
 <body>
 
-  <h1>Rose Petal Purity</h1>
-
-  <div class="product-info">
-    <p>Experience the delicate fragrance and purity of rose petals with our exclusive product.</p>
+  <div style="position: fixed; top: 20px; right: 20px; cursor: pointer;">
+    🛒 Cart: <span id="cartCount">0</span>
   </div>
 
-  <form id="productForm">
-    <div class="sizes">
-      <label>
-        <input type="radio" name="size" value="full" checked />
-        Full Size - $7.99
-      </label>
-      <label>
-        <input type="radio" name="size" value="half" />
-        Half Size - $3.99
-      </label>
-    </div>
+  <h1>Rose Petal Purity</h1>
+  <img src="your-image-url.jpg" alt="Rose Petal Purity" style="max-width: 300px; display: block; margin-bottom: 20px;" />
 
-    <button type="button" id="addToCartBtn">Add to Cart</button>
-  </form>
+  <select id="sizeSelect">
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+  </select>
+
+  <button id="addToCartBtn">Add to Cart</button>
 
   <script>
-    document.getElementById('addToCartBtn').addEventListener('click', function() {
-      const size = document.querySelector('input[name="size"]:checked').value;
-      const product = {
-        name: 'Rose Petal Purity',
-        size: size,
-        price: size === 'full' ? 7.99 : 3.99,
-        quantity: 1
-      };
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cartCount').textContent = totalQuantity;
+    }
 
+    document.getElementById('addToCartBtn').addEventListener('click', function() {
+      const size = document.getElementById('sizeSelect').value;
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-      const existingProductIndex = cart.findIndex(item => item.name === product.name && item.size === product.size);
-      if (existingProductIndex > -1) {
-        cart[existingProductIndex].quantity += 1;
+      // Check if item with same size exists
+      const existingItem = cart.find(item => item.size === size);
+      if (existingItem) {
+        existingItem.quantity++;
       } else {
-        cart.push(product);
+        cart.push({ size: size, quantity: 1 });
       }
 
       localStorage.setItem('cart', JSON.stringify(cart));
-
+      updateCartCount();
       alert('Added to cart!');
     });
+
+    // Update cart count on page load
+    updateCartCount();
   </script>
 
 </body>
 </html>
-```
