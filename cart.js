@@ -59,14 +59,14 @@ window.removeFromCart = function(index) {
 // Render cart items and subtotal (for cart.html)
 function renderCartItems() {
     const cart = getCart();
-    const cartItemsDiv = document.getElementById('cart-items');
-    const cartSubtotalDiv = document.getElementById('cart-subtotal');
-    if (!cartItemsDiv || !cartSubtotalDiv) return;
+    const cartItemsList = document.getElementById('cartItemsList');
+    const cartSubtotalDiv = document.getElementById('cartSubtotal');
+    if (!cartItemsList || !cartSubtotalDiv) return;
 
-    cartItemsDiv.innerHTML = '';
+    cartItemsList.innerHTML = '';
 
     if (cart.length === 0) {
-        cartItemsDiv.textContent = 'Your cart is empty.';
+        cartItemsList.textContent = 'Your cart is empty.';
         cartSubtotalDiv.textContent = '';
         return;
     }
@@ -74,18 +74,17 @@ function renderCartItems() {
     let subtotal = 0;
 
     cart.forEach((item, index) => {
-        // Create item display with product, size, quantity, price
-        const itemDiv = document.createElement('div');
-        const price = item.price || 0; // fallback if price not set
+        const price = item.price || 0;
         const totalPrice = price * item.quantity;
         subtotal += totalPrice;
 
-        itemDiv.innerHTML = `
-            <p>${item.product} (${item.size}) x ${item.quantity} - $${totalPrice.toFixed(2)}</p>
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${item.product} (${item.size}) x ${item.quantity} - $${totalPrice.toFixed(2)}
             <button onclick="removeFromCart(${index})">Remove</button>
         `;
 
-        cartItemsDiv.appendChild(itemDiv);
+        cartItemsList.appendChild(li);
     });
 
     cartSubtotalDiv.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
