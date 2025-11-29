@@ -33,6 +33,11 @@ function addItemToCart({ product, size, quantity }) {
     updateCartCount();
 }
 
+// Calculate total cost
+function calculateCartTotal() {
+    const cart = getCart();
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+}
 window.removeFromCart = function(index) {
     let cart = getCart();
     cart.splice(index, 1);
@@ -104,11 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCartItems();
     updateCartCount();
 });
+
 document.getElementById('addToCartBtn').addEventListener('click', () => {
-    const product = document.getElementById('addToCartBtn').dataset.product;
+    const btn = document.getElementById('addToCartBtn');
+    const product = btn.dataset.product;
+    const price = parseFloat(btn.dataset.price);
     const size = document.querySelector('input[name="size"]:checked').value;
     const quantity = 1;
 
-    addItemToCart({ product, size, quantity });
+    addItemToCart({ product, size, quantity, price });
 });
-
