@@ -104,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCartItems();
     updateCartCount();
 });
-}
 document.getElementById('addToCartBtn').addEventListener('click', () => {
     const product = document.getElementById('addToCartBtn').dataset.product;
     const size = document.querySelector('input[name="size"]:checked').value;
@@ -112,3 +111,4 @@ document.getElementById('addToCartBtn').addEventListener('click', () => {
 
     addItemToCart({ product, size, quantity });
 });
+
