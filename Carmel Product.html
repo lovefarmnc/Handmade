@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Caramel Latte Love</title>
-</head>
-<body>
-   <header>
-        <div class="container">
-            <img src="LOVE FARM LOGO.jpg" alt="Logo" class="logo" />
-            <div class="cart">
-                <a href="cart.html">Cart (0)</a>
-            </div>
+    <header>
+    <nav>
+ <div class="dropdown">
+        <a href="#" class="menu-button"><img src="menuimg.png" alt="Menu"></a>
+        <ul class="dropdown-content">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li><a href="TempServices.html">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="mailto:erica@lovefarmnc.com">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+    <div class="cart">
+            <a href="cart.html">
+                Cart (<span id="cart-count">0</span>)
+            </a>
         </div>
-        <div class="tagline">Add a little love to your life!</div>
-          <div style="position: fixed; top: 20px; right: 20px; cursor: pointer;">
-    🛒 Cart: <span id="cart-count">0</span>
-  </div>
-    </header>
+</header>
 
     <main>
        <img src="Coming Soon.jpg" alt="Caramel Latte Love" width="300">
@@ -48,3 +48,4 @@
     </footer>
 </body>
 </html>
+
