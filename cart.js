@@ -20,14 +20,14 @@ function updateCartCount() {
 }
 
 // Add an item (with product name and size, etc.)
-function addItemToCart({ product, size, quantity }) {
+function addItemToCart({ product, size, quantity, price }) {
     let cart = getCart();
     // You may want to distinguish by product+size
     let found = cart.find(item => item.product === product && item.size === size);
     if (found) {
         found.quantity += quantity;
     } else {
-        cart.push({ product, size, quantity });
+        cart.push({ product, size, quantity, price });
     }
     saveCart(cart);
     updateCartCount();
