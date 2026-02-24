@@ -310,6 +310,18 @@ banner {
     align-items: center; /* Horizontally center items */
     position: relative; /* Needed for tagline positioning */
 }
+.oat-section {
+    background-image: url("Soothing Oats.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 .cart-style {
   background-color: #f9f9f9; /* match your site’s background */
   border: 1px solid #ddd;
@@ -349,3 +361,4 @@ banner {
 .checkout-button:hover {
   background-color: #0056b3;
 }
+
