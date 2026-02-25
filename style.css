@@ -322,6 +322,13 @@ banner {
     align-items: center;
     position: relative;
 }
+.oat-section h2 {
+    position: absolute;
+    bottom: 20px;      /* Distance from bottom */
+    left: 20px;        /* Distance from left */
+    margin: 0;
+    text-align: left;
+}
 .cart-style {
   background-color: #f9f9f9; /* match your site’s background */
   border: 1px solid #ddd;
@@ -361,4 +368,5 @@ banner {
 .checkout-button:hover {
   background-color: #0056b3;
 }
+
 
