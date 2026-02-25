@@ -2,7 +2,4 @@ yaml
 deployment:
   tasks:
     - export DEPLOYPATH=/home/gfuxkicacotx/public_html/
-    - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp style.css $DEPLOYPATH
-    - /bin/cp script.js $DEPLOYPATH  # add this if you have a JS file
-    - /bin/cp -r images $DEPLOYPATH  # if you have an images folder
+    - cd $DEPLOYPATH && git pull origin main
