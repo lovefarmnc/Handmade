@@ -1,5 +1,5 @@
-yaml
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/gfuxkicacotx/public_html/
+    - export DEPLOYPATH=/home/gfuxkicacotx/public_html/repositories/handmade
     - cd $DEPLOYPATH && git pull origin main
+
